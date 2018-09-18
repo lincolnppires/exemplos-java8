@@ -38,5 +38,13 @@ public class AppTest {
 		
 		filmes.forEach(exibeNomeFilme);
 	}
+	
+	@Test
+	public void TestLambaImpressaoComForEach(){
+		filmes.forEach(f -> System.out.println(f.getNome()));
+	}
+	
+	
+	
 
 }
