@@ -1,0 +1,13 @@
+package br.com.lincoln.exemplos_java8;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+        System.out.println( "Hello World!" );
+    }
+}
