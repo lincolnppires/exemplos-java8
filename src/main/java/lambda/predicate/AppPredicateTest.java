@@ -1,4 +1,4 @@
-package java8.lambda.predicate;
+package lambda.predicate;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,7 +8,7 @@ import java.util.function.Predicate;
 import org.junit.Before;
 import org.junit.Test;
 
-import java8.lambda.consumer.Filme;
+import lambda.consumer.Filme;
 
 public class AppPredicateTest {
 

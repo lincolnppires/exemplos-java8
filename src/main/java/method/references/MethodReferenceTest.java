@@ -1,4 +1,4 @@
-package java8.method.references;
+package method.references;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -12,7 +12,7 @@ import java.util.function.ToIntBiFunction;
 import org.junit.Before;
 import org.junit.Test;
 
-import java8.lambda.consumer.Filme;
+import lambda.consumer.Filme;
 
 public class MethodReferenceTest {
 	

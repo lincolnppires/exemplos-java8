@@ -1,10 +1,11 @@
-package java8.lambda.consumer;
+package lambda.consumer;
 
 public class Filme {
 	
 	private String nome;
 	private Integer nota;
 	private boolean censurado;
+	private boolean top3;
 	
 	public Filme() {
 		this.nome = "null";
@@ -42,14 +43,20 @@ public class Filme {
 		return censurado;
 	}
 	
+	public void setTop3(){
+		this.top3 = true;
+	}
+	
 	public void imprimiNome(){
 		System.out.println(nome);
 	}
 
 	@Override
 	public String toString() {
-		return "Filme [nome=" + nome + ", nota=" + nota + ", censurado=" + censurado + "]";
+		return "Filme [nome=" + nome + ", nota=" + nota + ", censurado=" + censurado + ", top3=" + top3 + "]";
 	}
+
+	
 	
 	
 	

@@ -1,4 +1,4 @@
-package java8.lambda.functional.interfaces;
+package lambda.functional.interfaces;
 
 @FunctionalInterface
 public interface Validador<T> {

@@ -1,4 +1,4 @@
-package java8.lambda.functional.interfaces;
+package lambda.functional.interfaces;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;

@@ -1,4 +1,4 @@
-package java8.lambda.comparators;
+package lambda.comparators;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -8,7 +8,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import java8.lambda.consumer.Filme;
+import lambda.consumer.Filme;
 
 public class ComparatorTest {
 
