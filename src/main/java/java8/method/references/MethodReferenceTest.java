@@ -3,7 +3,9 @@ package java8.method.references;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.BiFunction;
 import java.util.function.Function;
+import java.util.function.Supplier;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -46,6 +48,24 @@ public class MethodReferenceTest {
 	public void TestaReferenciaMetodosComArgumentos(){
 		//equivale: f -> System.out.println(f)
 		filmes.forEach(System.out::println);
+	}
+	
+	@Test
+	public void TestaReferenciaConstrutor(){
+		
+		Supplier<Filme> fabricaFilme = Filme::new;
+		
+		Filme filme = fabricaFilme.get();
+		System.out.println(filme);
+		
+		Function<String, Filme> fabricaFilme1Argumento = Filme::new;
+		Filme filme2 = fabricaFilme1Argumento.apply("The Shining");
+		System.out.println(filme2);
+		
+		BiFunction<String, Integer, Filme> fabricaFilme2Argumentos = Filme::new;
+		Filme filme3 = fabricaFilme2Argumentos.apply("Lolita", 8);
+		System.out.println(filme3);
+		
 	}
 
 }

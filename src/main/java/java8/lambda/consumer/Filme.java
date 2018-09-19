@@ -6,8 +6,20 @@ public class Filme {
 	private Integer nota;
 	private boolean censurado;
 	
+	public Filme() {
+		this.nome = "null";
+		this.nota = -1;
+		this.censurado = false;
+	}
 	
-	public Filme(String nome, int nota) {
+	public Filme(String nome) {
+		this.nome = nome;
+		this.nota = -1;
+		this.censurado = false;
+	}
+	
+	
+	public Filme(String nome, Integer nota) {
 		this.nome = nome;
 		this.nota = nota;
 		this.censurado = false;
