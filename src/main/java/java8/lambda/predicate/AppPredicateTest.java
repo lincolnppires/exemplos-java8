@@ -38,6 +38,12 @@ public class AppPredicateTest {
 		
 		filmes.removeIf(predicado);
 		filmes.forEach(f -> System.out.println(f.getNome()));
+		
+		System.out.println("###");
+		
+		filmes.removeIf(f -> f.getNota() > 6);
+		filmes.forEach(f -> System.out.println(f.getNome()));
+		
 	}
 
 }
