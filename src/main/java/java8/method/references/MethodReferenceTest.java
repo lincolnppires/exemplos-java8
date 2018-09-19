@@ -16,7 +16,7 @@ public class MethodReferenceTest {
 
 	@Before
 	public void setup() {
-		Filme filme1 = new Filme("A Clockwork Orange", 8);
+		Filme filme1 = new Filme("A Clockwork Orange", 6);
 		Filme filme2 = new Filme("2001: A Space Odyssey", 7);
 		Filme filme3 = new Filme("Full Metal Jacket", 6);
 
@@ -31,6 +31,14 @@ public class MethodReferenceTest {
 		
 		Function<Filme, Integer> nota = Filme::getNota;
 		filmes.sort(Comparator.comparing(nota));
+		filmes.forEach(Filme::imprimiNome);
+	}
+	
+	@Test
+	public void TestaComposicaoComparator(){
+		System.out.println("###");
+		filmes.sort(Comparator.comparingInt(Filme::getNota)
+				.thenComparing(Filme::getNome));
 		filmes.forEach(Filme::imprimiNome);
 	}
 
