@@ -5,7 +5,9 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.function.BiFunction;
 import java.util.function.Function;
+import java.util.function.IntBinaryOperator;
 import java.util.function.Supplier;
+import java.util.function.ToIntBiFunction;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -65,6 +67,21 @@ public class MethodReferenceTest {
 		BiFunction<String, Integer, Filme> fabricaFilme2Argumentos = Filme::new;
 		Filme filme3 = fabricaFilme2Argumentos.apply("Lolita", 8);
 		System.out.println(filme3);
+		
+	}
+	
+	@Test
+	public void TestaOutrosTiposDeReferencia(){
+		BiFunction<Integer, Integer, Integer> max = Math::max;
+		ToIntBiFunction<Integer, Integer> max2 = Math::max;
+		IntBinaryOperator max3 = Math::max;
+	
+		System.out.println(	
+				"max: " + max.apply(10, 12) + 
+				"\nmax2: " + max2.applyAsInt(10, 12) +
+				"\nmax3: " + max3.applyAsInt(10, 12)
+		
+				);
 		
 	}
 
