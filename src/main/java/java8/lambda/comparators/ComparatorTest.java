@@ -67,5 +67,19 @@ public class ComparatorTest {
 		System.out.println("Fabrica de comparators");
 		Comparator<Filme> comparator = Comparator.comparing(f -> f.getNome());
 		filmes.sort(comparator);
+		filmes.forEach(f -> System.out.println(f.getNome()));
+	}
+	
+	@Test
+	public void TestaOrdemNatural(){
+		System.out.println("Natural Order");
+		List<String> filmes = Arrays.asList("Full Metal Jacket", "A Clockwork Orange", "2001: A Space Odyssey");
+		filmes.sort(Comparator.naturalOrder());
+		filmes.forEach(f -> System.out.println(f));
+		
+		System.out.println("Reverse Order");
+		filmes.sort(Comparator.reverseOrder());
+		filmes.forEach(f -> System.out.println(f));
+		
 	}
 }
