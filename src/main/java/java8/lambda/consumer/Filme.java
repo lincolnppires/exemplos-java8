@@ -30,5 +30,9 @@ public class Filme {
 		return censurado;
 	}
 	
+	public void imprimiNome(){
+		System.out.println(nome);
+	}
+	
 	
 }
