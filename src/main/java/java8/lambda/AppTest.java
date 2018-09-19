@@ -53,5 +53,17 @@ public class AppTest {
 		filmes.forEach(f -> assertTrue( f.isCensurado()));
 	}
 	
+	@Test
+	public void TestaComposicaoConsumer(){
+		//bom exemplo do pattern decorator/proxy
+		Consumer<Filme> msg = u -> System.out.println("Nome filme:");
+		Consumer<Filme> exibe = u -> System.out.println(u.getNome());
+		
+		filmes.forEach(msg.andThen(exibe));
+		
+	}
+		
+	
+	
 
 }
