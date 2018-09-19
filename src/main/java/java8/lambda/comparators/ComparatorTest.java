@@ -62,4 +62,10 @@ public class ComparatorTest {
 		filmes.forEach(f -> System.out.println(f.getNome()));
 	}
 	
+	@Test
+	public void TestaFabricaDeComparators(){
+		System.out.println("Fabrica de comparators");
+		Comparator<Filme> comparator = Comparator.comparing(f -> f.getNome());
+		filmes.sort(comparator);
+	}
 }
