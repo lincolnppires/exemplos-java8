@@ -1,4 +1,4 @@
-package java8.lambda.interf_funcional;
+package java8.lambda.functional.interfaces;
 
 
 public class RunnableTest {
