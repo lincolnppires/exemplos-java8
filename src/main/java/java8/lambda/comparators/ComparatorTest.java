@@ -68,6 +68,11 @@ public class ComparatorTest {
 		Comparator<Filme> comparator = Comparator.comparing(f -> f.getNome());
 		filmes.sort(comparator);
 		filmes.forEach(f -> System.out.println(f.getNome()));
+		
+		Comparator<Filme> comparatorNota = Comparator.comparingInt(f -> f.getNota());
+		filmes.sort(comparatorNota);
+		filmes.forEach(f -> System.out.println(f.getNome()));
+		
 	}
 	
 	@Test
