@@ -1,4 +1,4 @@
-package java8.lambda;
+package java8.lambda.consumer;
 
 import java.util.Arrays;
 import java.util.List;
@@ -10,7 +10,7 @@ import org.junit.Test;
 
 
 
-public class AppTest {
+public class AppConsumerTest {
 
 	private List<Filme> filmes;
 
