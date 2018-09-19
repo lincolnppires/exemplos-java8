@@ -33,6 +33,15 @@ public class Filme {
 	public void imprimiNome(){
 		System.out.println(nome);
 	}
+
+	@Override
+	public String toString() {
+		return "Filme [nome=" + nome + ", nota=" + nota + ", censurado=" + censurado + "]";
+	}
+	
+	
+	
+	
 	
 	
 }

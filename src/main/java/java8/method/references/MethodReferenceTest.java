@@ -42,5 +42,10 @@ public class MethodReferenceTest {
 		filmes.forEach(Filme::imprimiNome);
 	}
 
+	@Test
+	public void TestaReferenciaMetodosComArgumentos(){
+		//equivale: f -> System.out.println(f)
+		filmes.forEach(System.out::println);
+	}
 
 }
