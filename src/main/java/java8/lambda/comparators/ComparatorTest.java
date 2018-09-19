@@ -35,8 +35,15 @@ public class ComparatorTest {
 		};
 		
 		Collections.sort(filmes, comparator);
-		
 		filmes.forEach(f -> System.out.println(f.getNome()));
+		
+		System.out.println("###");
+		
+		Comparator<Filme> comparatorNota = (f1, f2) -> f1.getNota().compareTo(f2.getNota());
+		Collections.sort(filmes, comparatorNota);
+		filmes.forEach(f -> System.out.println(f.getNome()));
+		
+		
 		
 		
 		

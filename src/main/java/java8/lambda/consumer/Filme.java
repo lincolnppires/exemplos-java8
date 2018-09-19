@@ -3,7 +3,7 @@ package java8.lambda.consumer;
 public class Filme {
 	
 	private String nome;
-	private int nota;
+	private Integer nota;
 	private boolean censurado;
 	
 	
@@ -17,7 +17,7 @@ public class Filme {
 		return nome;
 	}
 	
-	public int getNota() {
+	public Integer getNota() {
 		return nota;
 	}
 	
