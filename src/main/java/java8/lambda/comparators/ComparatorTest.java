@@ -55,5 +55,11 @@ public class ComparatorTest {
 		filmes.forEach(f -> System.out.println(f.getNome()));
 	}
 	
+	@Test
+	public void TestaMetodoSortList(){
+		System.out.println("***");
+		filmes.sort((f1,f2) -> f1.getNota().compareTo(f2.getNota()));
+		filmes.forEach(f -> System.out.println(f.getNome()));
+	}
 	
 }
