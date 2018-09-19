@@ -1,7 +1,9 @@
 package java8.method.references;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
+import java.util.function.Function;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -23,6 +25,12 @@ public class MethodReferenceTest {
 	
 	@Test
 	public void TestaUsoMethodReference(){
+		
+		filmes.sort(Comparator.comparing(Filme::getNome));
+		filmes.forEach(Filme::imprimiNome);
+		
+		Function<Filme, Integer> nota = Filme::getNota;
+		filmes.sort(Comparator.comparing(nota));
 		filmes.forEach(Filme::imprimiNome);
 	}
 
