@@ -4,8 +4,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 
+import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
+
+
 
 public class AppTest {
 
@@ -40,11 +43,15 @@ public class AppTest {
 	}
 	
 	@Test
-	public void TestLambaImpressaoComForEach(){
+	public void TestLambdaImpressaoComForEach(){
 		filmes.forEach(f -> System.out.println(f.getNome()));
 	}
 	
-	
+	@Test
+	public void TestLambdaSetarValorCensura(){
+		filmes.forEach(f -> f.setCensurado(true));
+		filmes.forEach(f -> assertTrue( f.isCensurado()));
+	}
 	
 
 }
