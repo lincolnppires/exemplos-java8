@@ -46,9 +46,14 @@ public class ComparatorTest {
 		System.out.println("###");
 		Collections.sort(filmes, (f1,f2) ->  f1.getNome().compareTo(f2.getNome()));
 		filmes.forEach(f -> System.out.println(f.getNome()));
-		
-		
-		
-		
 	}
+	
+	@Test
+	public void TestaComparatorString(){
+		System.out.println("---");
+		Collections.sort(filmes, (f1, f2) -> String.CASE_INSENSITIVE_ORDER.compare(f1.getNome(), f2.getNome()));
+		filmes.forEach(f -> System.out.println(f.getNome()));
+	}
+	
+	
 }
