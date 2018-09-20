@@ -11,9 +11,11 @@ import org.junit.Test;
 
 public class StreamsInfinitos {
 
+
+	private Random random = new Random(0);
+	
 	@Test
 	public void TestaStreamInfinitoComOperacaoCurtoCircuito(){
-		Random random = new Random(0);
 		
 		Supplier<Integer> supplier = () -> random.nextInt();
 		//generate é lazy - são gerados a medida que forem necessários
@@ -42,6 +44,17 @@ public class StreamsInfinitos {
 									.collect(Collectors.toList());
 		
 		numeros.forEach(System.out::println);
+	}
+	
+	@Test 
+	public void TestaOperacaoCurtoCircuitoFindFirst(){
+		int positivo = IntStream
+							.generate(() -> random.nextInt())
+							.filter(n -> n > 0)
+							.findFirst()
+							.getAsInt();
+		
+		System.out.println("Positivo: " + positivo);
 	}
 	
 }
