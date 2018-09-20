@@ -1,5 +1,6 @@
 package collections.streams;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -48,6 +49,23 @@ public class NovidadesCollectionsTest {
 			.filter(f -> !f.isTop3())
 			.forEach(System.out::println);
 		
+	}
+	
+	@Test
+	public void TestaObtencaoList(){
+		System.out.println("List");
+		List<Filme> lista = new ArrayList<>(); 
+		
+		filmes.stream()
+			.filter(f -> f.getNota() < 8)
+			.forEach(f -> lista.add(f));
+		
+		//
+		filmes.stream()
+			.filter(f -> f.getNota() < 8)
+			.forEach(lista::add);
+		
+		lista.forEach(System.out::println);		
 	}
 
 	
