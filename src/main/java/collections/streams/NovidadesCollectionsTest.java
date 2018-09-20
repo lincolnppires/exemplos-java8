@@ -110,13 +110,23 @@ public class NovidadesCollectionsTest {
 	
 	@Test
 	public void TestaMapParaObtencaoNotas(){
-		
+		System.out.println("Map");
 		List<Integer> listaNotas = 
 				filmes.stream()
 						.map(f -> f.getNota())
 						.collect(Collectors.toList());
 		
 		assertEquals(6, listaNotas.size());
+	}
+	
+	@Test
+	public void TestaMapToIntParaObtencaoMediaNotasComIntStream(){
+		System.out.println("Media");
+		double mediaNotas = filmes.stream()
+						.mapToInt(Filme::getNota)
+						.average()
+						.getAsDouble();
+		assertEquals(7.5, mediaNotas, 00001);
 	}
 	
 	
