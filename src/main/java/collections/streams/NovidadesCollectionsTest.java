@@ -3,6 +3,7 @@ package collections.streams;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -94,6 +95,15 @@ public class NovidadesCollectionsTest {
 		set.forEach(System.out::println);		
 	}
 
+	@Test
+	public void TestaObtencaoSetComCollectorsEspecificandoImplementacao(){
+		System.out.println("HashSet");
+		Set<Filme> set = filmes.stream()
+							.filter(f -> f.getNota() < 8)
+							.collect(Collectors.toCollection(HashSet::new));
+		
+		System.out.println(set.getClass());
+	}
 	
 	
 	
