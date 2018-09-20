@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -39,7 +41,14 @@ public class GeradorMapas {
 		System.out.println(mapaNotas);
 	}
 	
-	
+	@Test
+	public void TestaMapNotaFilmeListaDeFilmesComMesmaNotaUsandoStreams(){
+		Map<Integer, List<Filme>> mapaNotas = 
+				filmes.stream()
+					.collect(Collectors.groupingBy(Filme::getNota));
+		
+		System.out.println(mapaNotas);
+	}
 	
 
 }
