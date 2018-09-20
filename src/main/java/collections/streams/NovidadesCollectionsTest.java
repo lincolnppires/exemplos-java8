@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.junit.Before;
@@ -68,6 +69,18 @@ public class NovidadesCollectionsTest {
 		lista.forEach(System.out::println);		
 	}
 
+	@Test
+	public void TestaObtencaoListComCollectors(){
+		System.out.println("Collectors");
+		List<Filme> lista = new ArrayList<>();
+		
+		lista = filmes.stream()
+					.filter(f -> f.getNota() < 8)
+					.collect(Collectors.toList());
+		
+		lista.forEach(System.out::println);		
+	}
+	
 	
 	
 	
