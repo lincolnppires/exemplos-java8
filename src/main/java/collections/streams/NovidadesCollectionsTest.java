@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -23,7 +24,8 @@ public class NovidadesCollectionsTest {
 		Filme filme3 = new Filme("Full Metal Jacket", 6);
 		Filme filme4 = new Filme("The Shining", 8);
 		Filme filme5 = new Filme("Lolita", 8);
-		filmes = Arrays.asList(filme1, filme2, filme3, filme4, filme5);
+		Filme filme6 = new Filme("2001: A Space Odyssey", 7);
+		filmes = Arrays.asList(filme1, filme2, filme3, filme4, filme5, filme6);
 	}
 	
 	@Test
@@ -81,7 +83,17 @@ public class NovidadesCollectionsTest {
 		lista.forEach(System.out::println);		
 	}
 	
-	
+
+	@Test
+	public void TestaObtencaoSetComCollectors(){
+		System.out.println("Set");
+		Set<Filme> set = filmes.stream()
+							.filter(f -> f.getNota() < 8)
+							.collect(Collectors.toSet());
+		
+		set.forEach(System.out::println);		
+	}
+
 	
 	
 	
