@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 import org.junit.Before;
 import org.junit.Test;
+import static org.junit.Assert.assertTrue;
 
 import lambda.consumer.Filme;
 
@@ -45,4 +46,45 @@ public class MaisRecursosStream {
 			.findAny();
 	}
 	
+	@Test
+	public void TestaOperacaoReduce(){
+		System.out.println("Reduce");
+		int somaNotas1 = filmes.stream()
+							.mapToInt(f -> f.getNota())
+							.reduce(0, (a,b) -> a + b);
+		//
+		int somaNotas2 = filmes.stream()
+				.mapToInt(f -> f.getNota())
+				.reduce(0, Integer::sum);
+		
+		//
+		int somaNotas3 = filmes.stream()
+							.mapToInt(f -> f.getNota())
+							.sum();
+		//
+		int somaNotas4 = filmes.stream()
+					.reduce(0, (nota, f) -> nota + f.getNota(), Integer::sum);
+		assertTrue(somaNotas1 == somaNotas2 
+				&& somaNotas2 == somaNotas3
+				&& somaNotas3 == somaNotas4);
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
+
