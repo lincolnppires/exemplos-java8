@@ -27,13 +27,22 @@ public class MaisRecursosStream {
 	
 	@Test
 	public void TestaFiltroOrdenadoStream(){
+		System.out.println("Filtro ordenado");
 		List<Filme> lista = filmes.stream()
 			.filter(f -> f.getNota() > 7)
 			.sorted(Comparator.comparing(Filme::getNome))
 			.collect(Collectors.toList());
 		
 		lista.forEach(System.out::println);
-			
+	}
+	
+	@Test
+	public void TestaPeekParaExecucaoTodaVezQueProcessarUmElemento(){
+		System.out.println("Peek");
+		filmes.stream()
+			.filter(f -> f.getNota() > 7)
+			.peek(System.out::println)
+			.findAny();
 	}
 	
 }
