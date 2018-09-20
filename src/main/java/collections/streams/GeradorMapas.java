@@ -32,7 +32,7 @@ public class GeradorMapas {
 	
 	@Test
 	public void TestaMapNotaFilmeListaDeFilmesComMesmaNota(){
-		
+		System.out.println("Nota x Lista Filmes - Map");
 		Map<Integer, List<Filme>> mapaNotas = new HashMap<>();
 		
 		for (Filme filme : filmes){
@@ -45,6 +45,7 @@ public class GeradorMapas {
 	
 	@Test
 	public void TestaMapNotaFilmeListaDeFilmesComMesmaNotaUsandoStreams(){
+		System.out.println("Nota x Lista Filmes - Stream");
 		Map<Integer, List<Filme>> mapaNotas = 
 				filmes.stream()
 					.collect(Collectors.groupingBy(Filme::getNota));
@@ -54,7 +55,7 @@ public class GeradorMapas {
 	
 	@Test
 	public void TestaMapFilmeParticionadoPorCensura(){
-		
+		System.out.println("Censura x Filme");
 		Map<Boolean, List<Filme>> mapaCensuradoFilme = 
 				filmes.stream()
 					.collect(Collectors.partitioningBy(Filme::isCensurado));
@@ -65,7 +66,7 @@ public class GeradorMapas {
 	
 	@Test
 	public void TestaMapNomeFilmeParticionadoPorCensura(){
-		
+		System.out.println("Censura x Nome");
 		Map<Boolean, List<String>> mapaCensuradoNomeFilme = 
 				filmes.stream()
 					.collect(Collectors
@@ -73,6 +74,18 @@ public class GeradorMapas {
 										Collectors.mapping(Filme::getNome, Collectors.toList())));
 		
 		System.out.println(mapaCensuradoNomeFilme);
+	}
+	
+	@Test
+	public void TestaMapParticionadoPorCensuraSomaNotas(){
+		System.out.println("Censura x Nota");
+		Map<Boolean, Integer> mapaCensuradoNotas = 
+				filmes.stream()
+					.collect(Collectors
+								.partitioningBy(Filme::isCensurado, 
+										Collectors.summingInt(Filme::getNota)));
+		
+		System.out.println(mapaCensuradoNotas);
 	}
 
 }
