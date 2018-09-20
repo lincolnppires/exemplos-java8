@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
+import java.util.OptionalDouble;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -125,11 +126,38 @@ public class NovidadesCollectionsTest {
 		double mediaNotas = filmes.stream()
 						.mapToInt(Filme::getNota)
 						.average()
-						.getAsDouble();
+						.getAsDouble(); 
 		assertEquals(7.5, mediaNotas, 00001);
 	}
 	
+	@Test
+	public void TestaOptimalParaObtencaoMedias(){
+		System.out.println("Optimal");
+		
+		OptionalDouble mediaNotas = filmes.stream()
+						.mapToInt(Filme::getNota)
+						.average();
+		
+		assertEquals(7.5, mediaNotas.orElse(0.0), 00001);
+		
+		//
+		double mediaNotasDouble = filmes.stream()
+				.mapToInt(Filme::getNota)
+				.average()
+				.orElse(0.0);
 	
+		//
+		mediaNotasDouble = filmes.stream()
+				.mapToInt(Filme::getNota)
+				.average()
+				.orElseThrow(IllegalStateException::new);
+		
+		//
+		filmes.stream()
+			.mapToInt(Filme::getNota)
+			.average()
+			.ifPresent(System.out::println);
+	}	
 	
 	
 	
