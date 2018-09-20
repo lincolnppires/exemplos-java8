@@ -1,5 +1,7 @@
 package collections.streams;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -12,6 +14,7 @@ import java.util.stream.Stream;
 import org.junit.Before;
 import org.junit.Test;
 
+import junit.framework.Assert;
 import lambda.consumer.Filme;
 
 public class NovidadesCollectionsTest {
@@ -103,6 +106,17 @@ public class NovidadesCollectionsTest {
 							.collect(Collectors.toCollection(HashSet::new));
 		
 		System.out.println(set.getClass());
+	}
+	
+	@Test
+	public void TestaMapParaObtencaoNotas(){
+		
+		List<Integer> listaNotas = 
+				filmes.stream()
+						.map(f -> f.getNota())
+						.collect(Collectors.toList());
+		
+		assertEquals(6, listaNotas.size());
 	}
 	
 	
