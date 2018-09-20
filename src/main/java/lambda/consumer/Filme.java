@@ -47,6 +47,10 @@ public class Filme {
 		this.top3 = true;
 	}
 	
+	public boolean isTop3(){
+		return this.top3;
+	}
+	
 	public void imprimiNome(){
 		System.out.println(nome);
 	}

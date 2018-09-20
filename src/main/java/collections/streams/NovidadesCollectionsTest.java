@@ -3,6 +3,7 @@ package collections.streams;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Stream;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -25,6 +26,7 @@ public class NovidadesCollectionsTest {
 	
 	@Test
 	public void TestaFiltroTop3(){
+		System.out.println("Aplicando metodo em um grupo");
 		filmes.sort(Comparator.comparing(Filme::getNota).reversed());
 		
 		filmes
@@ -34,6 +36,48 @@ public class NovidadesCollectionsTest {
 		filmes.forEach(System.out::println);
 	}
 	
-	
+	@Test
+	public void TestaFiltroComStream(){
+		System.out.println("Stream - Filter");
+		Stream<Filme> stream = filmes.stream();
+		Stream<Filme> filter = stream.filter(f -> f.getNota() < 7);
+		filter.forEach(System.out::println);
 
+		//
+		filmes.stream()
+			.filter(f -> !f.isTop3())
+			.forEach(System.out::println);
+		
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
