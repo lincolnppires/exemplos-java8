@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.OptionalDouble;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -158,6 +159,20 @@ public class NovidadesCollectionsTest {
 			.average()
 			.ifPresent(System.out::println);
 	}	
+	
+	@Test
+	public void TestaMaiorNotaFilme(){
+		System.out.println("Max");
+		Optional<Filme> filme = filmes.stream()
+									.max(Comparator.comparingInt(Filme::getNota));
+		filme.ifPresent(System.out::println);
+		
+		Optional<String> nomeFilme = filmes.stream()
+										.max(Comparator.comparingInt(Filme::getNota))
+										.map(Filme::getNome);
+		
+		System.out.println(nomeFilme.orElse("Lista vazia"));
+	}
 	
 	
 	
